@@ -6,22 +6,24 @@ import 'package:meals_app/screens/widgets/drawer.dart';
 import '../../models/meal.dart';
 
 class TabsScreen extends StatefulWidget {
+  const TabsScreen({super.key, required this.favMeals});
+
   final List<Meal> favMeals;
-  const TabsScreen({Key? key, required this.favMeals}) : super(key: key);
 
   @override
-  _TabsScreenState createState() => _TabsScreenState();
+  State<TabsScreen> createState() => _TabsScreenState();
 }
 
 class _TabsScreenState extends State<TabsScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+      length: 2,
       child: Scaffold(
         appBar: AppBar(
           title: Text(
             'Meals',
-            style: Theme.of(context).textTheme.headline6!.copyWith(
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
                   fontSize: 25,
                   color: Colors.white,
                 ),
@@ -47,7 +49,6 @@ class _TabsScreenState extends State<TabsScreen> {
           ],
         ),
       ),
-      length: 2,
     );
   }
 }

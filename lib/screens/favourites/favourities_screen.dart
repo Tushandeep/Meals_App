@@ -19,7 +19,7 @@ class FavouritiesScreen extends StatelessWidget {
         final Meal meal = favMeals[index];
         return MealItem(
           id: meal.id,
-          color: Theme.of(context).accentColor,
+          color: Theme.of(context).colorScheme.secondary,
           title: meal.title,
           imageUrl: meal.imageUrl,
           affordability: meal.affordability,

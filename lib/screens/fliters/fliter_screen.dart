@@ -55,7 +55,7 @@ class _FliterScreenState extends State<FliterScreen> {
             padding: const EdgeInsets.all(20),
             child: Text(
               'Adjust Meals Selection.',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
           Expanded(

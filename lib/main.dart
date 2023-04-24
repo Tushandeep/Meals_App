@@ -6,6 +6,7 @@ import 'package:meals_app/screens/fliters/fliter_screen.dart';
 import 'package:meals_app/screens/meals/meal_screen.dart';
 import 'package:meals_app/screens/categories/categories_screen.dart';
 import 'package:meals_app/screens/tabs/tabs_screen.dart';
+import 'package:meals_app/theme/theme.dart';
 import 'screens/categories/categories_meals_screen.dart';
 
 Future<void> main() async {
@@ -93,25 +94,7 @@ class _MyAppState extends State<MyApp> {
       },
       // home: const CategoriesScreen(),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.pink,
-        accentColor: Colors.amber,
-        canvasColor: const Color.fromRGBO(255, 254, 229, 1),
-        fontFamily: 'RobotoCondensedRaleway',
-        textTheme: ThemeData.light().textTheme.copyWith(
-              bodyText1: const TextStyle(
-                color: Color.fromRGBO(20, 51, 51, 1),
-              ),
-              bodyText2: const TextStyle(
-                color: Color.fromRGBO(20, 51, 51, 1),
-              ),
-              headline6: const TextStyle(
-                fontSize: 20,
-                fontFamily: 'Raleway',
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-      ),
+      theme: theme,
     );
   }
 }
