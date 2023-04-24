@@ -78,7 +78,6 @@ class IngredientsInfo extends StatelessWidget {
           ),
         ),
         Container(
-          height: 180,
           width: deviceWidth - 30,
           decoration: BoxDecoration(
             color: routeArgs['color'].withOpacity(0.1),
@@ -91,19 +90,23 @@ class IngredientsInfo extends StatelessWidget {
           child: GlowingOverscrollIndicator(
             axisDirection: AxisDirection.down,
             color: routeArgs['color']!,
-            child: ListView.builder(
-              itemBuilder: (_, index) {
-                return Row(
+            child: Column(
+              children: List.generate(
+                selectedMeal.ingredients.length,
+                (index) => Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text("• ",
-                        style: TextStyle(
-                            color: routeArgs['color']!, fontSize: 20)),
+                    Text(
+                      "• ",
+                      style: TextStyle(
+                        color: routeArgs['color']!,
+                        fontSize: 20,
+                      ),
+                    ),
                     Text(selectedMeal.ingredients[index]),
                   ],
-                );
-              },
-              itemCount: selectedMeal.ingredients.length,
+                ),
+              ),
             ),
           ),
         ),

@@ -43,15 +43,17 @@ class MealDetails extends StatelessWidget {
 
             // Ingredients.........
             IngredientsInfo(
-                routeArgs: routeArgs,
-                deviceWidth: deviceWidth,
-                selectedMeal: selectedMeal),
+              routeArgs: routeArgs,
+              deviceWidth: deviceWidth,
+              selectedMeal: selectedMeal,
+            ),
 
             // Steps.....
             StepsInfo(
-                routeArgs: routeArgs,
-                deviceWidth: deviceWidth,
-                selectedMeal: selectedMeal)
+              routeArgs: routeArgs,
+              deviceWidth: deviceWidth,
+              selectedMeal: selectedMeal,
+            )
           ],
         ),
       ),

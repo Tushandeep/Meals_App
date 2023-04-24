@@ -78,7 +78,6 @@ class StepsInfo extends StatelessWidget {
           ),
         ),
         Container(
-          height: 250,
           width: deviceWidth - 30,
           decoration: BoxDecoration(
             color: routeArgs['color'].withOpacity(0.1),
@@ -87,32 +86,40 @@ class StepsInfo extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(10),
           ),
+          margin: const EdgeInsets.only(bottom: 100),
           padding: const EdgeInsets.only(top: 5, bottom: 5),
           child: GlowingOverscrollIndicator(
             axisDirection: AxisDirection.down,
             color: routeArgs['color']!,
-            child: ListView.separated(
-              separatorBuilder: (_, index) {
-                return Divider(
-                  indent: 65,
-                  endIndent: 10,
-                  color: routeArgs['color'].withOpacity(0.7),
-                );
-              },
-              itemBuilder: (_, index) {
-                return ListTile(
-                    leading: CircleAvatar(
-                      backgroundColor: routeArgs['color']!,
-                      child: Text('# ${index + 1}',
+            child: Column(
+              children: List.generate(
+                selectedMeal.steps.length,
+                (index) => Column(
+                  children: <Widget>[
+                    ListTile(
+                      leading: CircleAvatar(
+                        backgroundColor: routeArgs['color']!,
+                        child: Text(
+                          '#${index + 1}',
                           style: const TextStyle(
                             color: Colors.white,
-                          )),
+                            letterSpacing: 1.2,
+                          ),
+                        ),
+                      ),
+                      title: Text(
+                        selectedMeal.steps[index],
+                      ),
                     ),
-                    title: Text(
-                      selectedMeal.steps[index],
-                    ));
-              },
-              itemCount: selectedMeal.steps.length,
+                    if (index != selectedMeal.steps.length - 1)
+                      Divider(
+                        indent: 65,
+                        endIndent: 10,
+                        color: routeArgs['color'].withOpacity(0.7),
+                      ),
+                  ],
+                ),
+              ),
             ),
           ),
         ),
